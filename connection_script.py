@@ -19,9 +19,13 @@ def connect_databases():
         config_etl = config['ETLDB']
         server=config_etl['Server']
         database=config_etl['Database']
-        driver=config_etl['Driver']
         if config_etl['Type'] == 'mssql':
+            driver=config_etl['Driver']
             conn_etl=f'mssql://@{server}/{database}?driver={driver}&trusted_connection=yes;'
+        elif config_etl['Type'] == 'postgresql':
+            user=config_etl['User']
+            password=config_etl['Password']
+            conn_etl=f'postgresql+psycopg2://{user}:{password}@{server}:5432/{database}'
         else:
             raise Exception('No valid target database')
         engine_etl = create_engine(conn_etl)
