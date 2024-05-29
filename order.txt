@@ -1,0 +1,15 @@
+Es recomendado  generar las tablas en el siguiente orden.
+
+1. DimCurrency
+2. DimSalesTerritory
+3. DimGeography
+4. DimCustomer
+5. DimDate
+6. DimProductCategory
+7. DimProductSubcategory
+8. DimProduct
+9. DimPromotion
+10. DimReseller
+11. DimEmployee
+12. FactInternetSales
+13. FactResellerSales
